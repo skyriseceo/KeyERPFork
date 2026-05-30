@@ -19,11 +19,10 @@ function mountKeyERPNav() {
 
 // app_ready fires once after Frappe Desk initializes.
 // Source: frappe/public/js/frappe/desk.js:60
-$(document).on("app_ready", mountKeyERPNav);
+$(document).on("app_ready", function () {
+	mountKeyERPNav();
 
-// Listen for profile changes (emitted by keyerp.provisioning.on_domain_settings_update)
-// and reload so frappe.boot — and therefore the nav manifest — is refreshed.
-if (window.frappe && frappe.realtime) {
+	// Register after app_ready so frappe.realtime is guaranteed to be initialized.
 	frappe.realtime.on("keyerp_profile_changed", function ({ profile }) {
 		frappe.show_alert({
 			message: __("Profile changed to {0}. Refreshing...", [profile]),
@@ -31,4 +30,4 @@ if (window.frappe && frappe.realtime) {
 		});
 		setTimeout(() => window.location.reload(), 1500);
 	});
-}
+});

@@ -33,8 +33,11 @@ def on_domain_settings_update(doc, method=None):
 	"""
 	active_domains = set(frappe.get_active_domains())
 	profile = _resolve_profile(active_domains)
-	# Notify the UI to reload so keyerp_nav_manifest is refreshed
-	frappe.publish_realtime("keyerp_profile_changed", {"profile": profile}, user=frappe.session.user)
+	# Guard: session.user may be absent in CLI / migration context.
+	user = getattr(frappe.session, "user", None)
+	if not user or user == "Guest":
+		return
+	frappe.publish_realtime("keyerp_profile_changed", {"profile": profile}, user=user)
 
 
 def _resolve_profile(active_domains: set) -> str:

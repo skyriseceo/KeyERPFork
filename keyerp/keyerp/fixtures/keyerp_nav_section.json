@@ -14,6 +14,20 @@
   },
   {
     "doctype": "KeyERP Nav Section",
+    "name": "home-mfg",
+    "section_id": "home-mfg",
+    "label": "Home",
+    "icon": "🏠",
+    "profile": "manufacturing",
+    "order": 10,
+    "route": "Workspaces/KeyERP Home Mfg",
+    "is_overlay": 1,
+    "base_section": "home",
+    "disabled": 0,
+    "items": []
+  },
+  {
+    "doctype": "KeyERP Nav Section",
     "name": "buy",
     "section_id": "buy",
     "label": "Buy",

@@ -18,7 +18,7 @@
 					v-if="section.items && section.items.length && activeDropdown === section.section_id"
 					class="keyerp-dropdown"
 				>
-					<li v-for="item in section.items" :key="item.link_to">
+					<li v-for="item in section.items" :key="`${item.link_type}:${item.link_to}`">
 						<a class="keyerp-dropdown-item" @click.prevent="navigateItem(item)">
 							{{ item.label }}
 						</a>
@@ -80,27 +80,58 @@ export default {
 
 		function syncActiveSection() {
 			const route = frappe.get_route_str();
-			// Map current route to a section (basic heuristic; extend as needed)
 			const routeSectionMap = {
+				// Buy
+				"material-request": "buy",
 				"purchase-order": "buy",
 				"purchase-receipt": "buy",
 				"purchase-invoice": "buy",
 				supplier: "buy",
+				"purchase-order-analysis": "buy",
+				"purchase-register": "buy",
+				// Sell
+				quotation: "sell",
 				"sales-order": "sell",
-				"sales-invoice": "sell",
 				"delivery-note": "sell",
+				"sales-invoice": "sell",
 				customer: "sell",
-				"stock-entry": "stock",
-				item: "stock",
+				"sales-order-analysis": "sell",
+				"sales-register": "sell",
+				// Make
 				"work-order": "make",
 				"job-card": "make",
 				bom: "make",
+				"production-plan": "make",
+				"bom-stock-report": "make",
+				"production-planning-report": "make",
+				// Stock
+				item: "stock",
+				"stock-entry": "stock",
+				"stock-balance": "stock",
+				"stock-ledger": "stock",
+				"stock-reconciliation": "stock",
+				warehouse: "stock",
+				// Money
 				"payment-entry": "money",
 				"journal-entry": "money",
+				"bank-reconciliation-tool": "money",
+				"accounts-receivable": "money",
+				"accounts-payable": "money",
+				"general-ledger": "money",
+				// Workspace routes (e.g. "Workspaces/KeyERP Buy" → slug "keyerp-buy")
+				"keyerp-home": "home",
+				"keyerp-home-mfg": "home",
+				"keyerp-buy": "buy",
+				"keyerp-sell": "sell",
+				"keyerp-make": "make",
+				"keyerp-stock": "stock",
+				"keyerp-money": "money",
+				"keyerp-reports": "reports",
+				"keyerp-settings": "settings",
 			};
-			const doctype = route.split("/")[1]?.toLowerCase().replace(/ /g, "-");
-			if (doctype && routeSectionMap[doctype]) {
-				activeSection.value = routeSectionMap[doctype];
+			const segment = route.split("/")[1]?.toLowerCase().replace(/ /g, "-");
+			if (segment && routeSectionMap[segment]) {
+				activeSection.value = routeSectionMap[segment];
 			}
 		}
 
