@@ -14,7 +14,13 @@ function mountKeyERPNav() {
 	el.id = KEYERP_NAV_ID;
 	header.insertAdjacentElement("afterend", el);
 
-	createApp(KeyERPNav).mount(el);
+	const app = createApp(KeyERPNav);
+	// Expose Frappe's `__` (translations) and `frappe` to the component's template
+	// scope. Build-time-compiled SFC templates resolve identifiers against the
+	// instance, not globals, so this helper is required — it's the same call every
+	// Frappe Vue bundle makes (window.SetVueGlobals, frappe/.../libs.bundle.js).
+	SetVueGlobals(app);
+	app.mount(el);
 }
 
 // app_ready fires once after Frappe Desk initializes.
