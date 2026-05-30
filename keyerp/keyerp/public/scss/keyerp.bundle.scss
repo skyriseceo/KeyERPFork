@@ -1,107 +1,354 @@
-// ── 1. Hide Frappe's workspace sidebar ────────────────────────
+// ─────────────────────────────────────────────────────────────────────────────
+// KeyERP desk chrome overrides.
+//
+// Design-system note: every value below is sourced from Frappe's own design
+// tokens (frappe/public/scss/espresso/* and common/css_variables.scss) so the
+// KeyERP nav reads as a native part of the desk in BOTH light and dark themes.
+// The only brand-intentional departure is a dark primary nav band (a common,
+// premium top-nav pattern); its surface is the neutral --gray-900, NOT a
+// blue-tinted slate, so it stays on-palette with Frappe's neutral chrome.
+// ─────────────────────────────────────────────────────────────────────────────
+
+// ── 1. Hide Frappe's workspace sidebar ────────────────────────────────────────
 // Target confirmed in frappe/public/scss/desk/sidebar.scss:23
-// body is display:flex row (main.scss:37); hiding this lets .main-section fill 100%
+// body is display:flex row (main.scss); hiding this lets .main-section fill 100%.
 .body-sidebar-container {
-  display: none !important;
+	display: none !important;
 }
 
-// ── 2. KeyERP section nav bar ─────────────────────────────────
+// ── 2. KeyERP section nav bar ─────────────────────────────────────────────────
 #keyerp-section-nav {
-  width: 100%;
-  background: #0f172a;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  flex-shrink: 0;
-  // z-index below dialogs (1020+) per frappe/public/scss/desk/.sticky-top
-  z-index: 1019;
+	// Brand surface + token-driven theming. Override these four to re-skin.
+	--keyerp-nav-bg: var(--gray-900); // neutral #171717 (on-palette, not slate)
+	--keyerp-nav-fg: var(--gray-400); // resting label color
+	--keyerp-nav-fg-strong: #fff; // hover / active label color
+	--keyerp-nav-hover-bg: rgba(255, 255, 255, 0.08);
+	--keyerp-nav-accent: var(--blue-500); // Frappe's accent blue (#0289f7)
+
+	// Icons inherit the (light) text color, mirroring Frappe's .btn pattern
+	// (common/buttons.scss:118) so line icons are visible on the dark band.
+	--icon-stroke: currentColor;
+
+	position: relative;
+	width: 100%;
+	background: var(--keyerp-nav-bg);
+	box-shadow: var(--shadow-sm); // subtle lift; matches Frappe's elevation language
+	flex-shrink: 0;
+	z-index: 1019; // above page content, below dialogs/menus (1030+)
+}
+
+// In dark theme nudge the band one step lighter than the content bg (--gray-900)
+// so it still reads as a distinct, elevated bar rather than blending in.
+[data-theme="dark"] #keyerp-section-nav {
+	--keyerp-nav-bg: var(--gray-800);
 }
 
 .keyerp-section-nav {
-  display: flex;
-  height: 40px;
-  align-items: stretch;
+	display: flex;
+	align-items: stretch;
+	height: var(--navbar-height, 48px); // match Frappe's top navbar + page-head
+	padding: 0 var(--padding-sm);
+	gap: var(--padding-xs);
+}
+
+// Mobile hamburger toggle — hidden on desktop, shown < 768px.
+.keyerp-nav-toggle {
+	display: none;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	margin: auto var(--padding-xs) auto 0;
+	padding: 0;
+	border: none;
+	border-radius: var(--border-radius);
+	background: transparent;
+	color: var(--keyerp-nav-fg-strong);
+	cursor: pointer;
+
+	&:hover {
+		background: var(--keyerp-nav-hover-bg);
+	}
+	&:focus-visible {
+		outline: none;
+		box-shadow: var(--focus-default);
+	}
 }
 
 .keyerp-nav-list {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0 8px;
-  height: 100%;
-  gap: 0;
-  align-items: stretch;
+	display: flex;
+	align-items: stretch;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	gap: 0;
+	list-style: none;
 }
 
 .keyerp-nav-item {
-  position: relative;
-  display: flex;
-  align-items: stretch;
+	position: relative;
+	display: flex;
+	align-items: stretch;
+}
+
+// The trigger groups the navigating label and the (optional) dropdown caret.
+.keyerp-nav-trigger {
+	display: flex;
+	align-items: stretch;
 }
 
 .keyerp-nav-link {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  padding: 0 13px;
-  height: 100%;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 13px;
-  font-weight: 500;
-  text-decoration: none !important;
-  border-bottom: 2px solid transparent;
-  cursor: pointer;
-  transition: color 0.12s, background 0.12s;
-  white-space: nowrap;
+	display: flex;
+	align-items: center;
+	gap: var(--padding-xs);
+	height: 100%;
+	padding: 0 var(--padding-sm) 0 var(--padding-md);
+	color: var(--keyerp-nav-fg);
+	font-size: var(--text-sm); // 13px
+	font-weight: var(--weight-medium); // 500
+	line-height: 1;
+	white-space: nowrap;
+	text-decoration: none !important;
+	border-bottom: 2px solid transparent;
+	cursor: pointer;
+	transition: color 0.12s ease, background 0.12s ease;
 
-  &:hover {
-    color: #fff;
-    background: rgba(255, 255, 255, 0.06);
-  }
+	&:hover {
+		color: var(--keyerp-nav-fg-strong);
+		background: var(--keyerp-nav-hover-bg);
+	}
+	&:focus-visible {
+		outline: none;
+		box-shadow: var(--focus-default);
+		border-radius: var(--border-radius-tiny);
+	}
 }
 
-.keyerp-nav-item.active > .keyerp-nav-link {
-  color: #fff;
-  border-bottom-color: #3b82f6;
+// When a section has a caret, the label loses its right padding so the pair
+// reads as one control.
+.keyerp-nav-trigger:has(.keyerp-nav-caret) .keyerp-nav-link {
+	padding-right: var(--padding-xs);
 }
 
-.keyerp-caret {
-  font-size: 10px;
-  opacity: 0.6;
-  margin-left: 2px;
+.keyerp-nav-icon {
+	display: inline-flex;
+	align-items: center;
+
+	.icon {
+		width: 16px;
+		height: 16px;
+		stroke-width: 1.75px; // slightly heavier reads better at 16px on dark
+	}
 }
 
+// Caret is a real button so keyboard + touch users can open the menu without
+// triggering navigation (accessible split-button pattern).
+.keyerp-nav-caret {
+	display: flex;
+	align-items: center;
+	padding: 0 var(--padding-sm) 0 0;
+	border: none;
+	background: transparent;
+	color: var(--keyerp-nav-fg);
+	cursor: pointer;
+	border-bottom: 2px solid transparent;
+	transition: color 0.12s ease, background 0.12s ease;
+
+	.icon {
+		width: 14px;
+		height: 14px;
+		transition: transform 0.15s ease;
+	}
+
+	&:hover {
+		color: var(--keyerp-nav-fg-strong);
+		background: var(--keyerp-nav-hover-bg);
+	}
+	&:focus-visible {
+		outline: none;
+		box-shadow: var(--focus-default);
+		border-radius: var(--border-radius-tiny);
+	}
+}
+
+// Open + active states.
+.keyerp-nav-item.is-open {
+	.keyerp-nav-link,
+	.keyerp-nav-caret {
+		color: var(--keyerp-nav-fg-strong);
+	}
+	.keyerp-nav-caret .icon {
+		transform: rotate(180deg);
+	}
+}
+
+.keyerp-nav-item.active {
+	.keyerp-nav-link {
+		color: var(--keyerp-nav-fg-strong);
+		border-bottom-color: var(--keyerp-nav-accent);
+	}
+	.keyerp-nav-caret {
+		border-bottom-color: var(--keyerp-nav-accent);
+	}
+}
+
+// ── 3. Dropdown — mirrors Frappe's native .frappe-menu / .dropdown-menu ────────
+// Light surface, 12px radius, shadow-xl, 8px-radius items: identical to the
+// menus Frappe renders elsewhere, so opening a section feels native.
 .keyerp-dropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  min-width: 210px;
-  background: #1e293b;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-  z-index: 1025;
-  padding: 5px 0;
-  list-style: none;
-  margin: 0;
+	position: absolute;
+	top: 100%;
+	inset-inline-start: 0; // logical → auto-flips under RTL
+	min-width: 220px;
+	margin: 0;
+	margin-top: 6px;
+	padding: var(--padding-xs);
+	list-style: none;
+	background: var(--card-bg);
+	border: 1px solid var(--border-color);
+	border-radius: var(--border-radius-lg); // 12px
+	box-shadow: var(--shadow-xl);
+	z-index: 1025;
+
+	// Invisible bridge across the 6px gap so hover doesn't drop between the
+	// trigger and the menu.
+	&::before {
+		content: "";
+		position: absolute;
+		top: -6px;
+		left: 0;
+		right: 0;
+		height: 6px;
+	}
 }
 
 .keyerp-dropdown-item {
-  display: block;
-  padding: 8px 16px;
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 13px;
-  text-decoration: none !important;
-  cursor: pointer;
-  transition: background 0.1s, color 0.1s;
+	display: flex;
+	align-items: center;
+	height: 28px;
+	padding: 6px 8px;
+	border-radius: var(--border-radius-sm); // 8px
+	color: var(--text-color);
+	font-size: var(--text-sm);
+	text-decoration: none !important;
+	white-space: nowrap;
+	cursor: pointer;
+	transition: background 0.1s ease, color 0.1s ease;
 
-  &:hover {
-    background: rgba(255, 255, 255, 0.07);
-    color: #fff;
-  }
+	&:hover {
+		background: var(--fg-hover-color);
+		color: var(--text-color);
+	}
+	&:focus-visible {
+		outline: none;
+		box-shadow: var(--focus-default);
+	}
 }
 
-// ── 3. Responsive collapse (narrow viewports) ─────────────────
+// ── 4. Dropdown enter/leave motion ────────────────────────────────────────────
+.keyerp-dd-enter-active,
+.keyerp-dd-leave-active {
+	transition: opacity 0.12s ease, transform 0.12s ease;
+}
+.keyerp-dd-enter-from,
+.keyerp-dd-leave-to {
+	opacity: 0;
+	transform: translateY(-4px);
+}
+
+// ── 5. Responsive: real menu, not a dead-end ──────────────────────────────────
+// The previous build hid the nav entirely < 768px, stranding mobile users.
+// Now a hamburger reveals the sections as a vertical sheet; section sub-items
+// expand inline (accordion) rather than as floating dropdowns.
 @media (max-width: 768px) {
-  .keyerp-nav-list {
-    display: none; // TODO: replace with hamburger menu in Phase 2 follow-on
-  }
+	.keyerp-nav-toggle {
+		display: flex;
+	}
+
+	.keyerp-nav-list {
+		position: absolute;
+		top: 100%;
+		inset-inline: 0;
+		flex-direction: column;
+		align-items: stretch;
+		height: auto;
+		max-height: calc(100vh - var(--navbar-height, 48px) * 2);
+		overflow-y: auto;
+		padding: var(--padding-xs);
+		gap: 2px;
+		background: var(--keyerp-nav-bg);
+		box-shadow: var(--shadow-lg);
+	}
+
+	// Collapsed by default; .is-mobile-open reveals it.
+	.keyerp-section-nav:not(.is-mobile-open) .keyerp-nav-list {
+		display: none;
+	}
+
+	.keyerp-nav-item {
+		flex-direction: column;
+	}
+
+	.keyerp-nav-trigger {
+		justify-content: space-between;
+	}
+
+	.keyerp-nav-link {
+		flex: 1;
+		height: 40px;
+		border-bottom: none;
+		border-radius: var(--border-radius);
+	}
+
+	.keyerp-nav-item.active .keyerp-nav-link {
+		background: var(--keyerp-nav-hover-bg);
+		border-bottom: none;
+	}
+
+	.keyerp-nav-caret {
+		height: 40px;
+		padding: 0 var(--padding-md);
+		border-bottom: none;
+	}
+
+	// On mobile the dropdown is an inline accordion panel, full width, dark to
+	// match the sheet (not a floating light card).
+	.keyerp-dropdown {
+		position: static;
+		min-width: 0;
+		margin: 0 0 4px;
+		padding: 2px 0 2px var(--padding-md);
+		background: transparent;
+		border: none;
+		border-radius: 0;
+		box-shadow: none;
+
+		&::before {
+			display: none;
+		}
+	}
+
+	.keyerp-dropdown-item {
+		color: var(--keyerp-nav-fg);
+		&:hover {
+			background: var(--keyerp-nav-hover-bg);
+			color: var(--keyerp-nav-fg-strong);
+		}
+	}
+}
+
+// ── 6. Respect reduced-motion (Frappe doesn't, so this is a net improvement) ──
+@media (prefers-reduced-motion: reduce) {
+	.keyerp-nav-link,
+	.keyerp-nav-caret,
+	.keyerp-nav-caret .icon,
+	.keyerp-dropdown-item,
+	.keyerp-dd-enter-active,
+	.keyerp-dd-leave-active {
+		transition: none !important;
+	}
+	.keyerp-dd-enter-from,
+	.keyerp-dd-leave-to {
+		transform: none;
+	}
 }

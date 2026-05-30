@@ -37,7 +37,8 @@
     {
       "fieldname": "icon",
       "fieldtype": "Data",
-      "label": "Icon (emoji or icon name)"
+      "label": "Icon",
+      "description": "Frappe icon sprite name, e.g. house, shopping-cart, factory (rendered as #icon-&lt;name&gt;)"
     },
     {
       "fieldname": "profile",
