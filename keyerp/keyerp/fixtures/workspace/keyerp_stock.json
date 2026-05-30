@@ -1,0 +1,43 @@
+{
+  "app": "keyerp",
+  "charts": [],
+  "content": "[{\"id\":\"keyerp-stock-shortcuts\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Stock</b></span>\",\"col\":12}},{\"id\":\"keyerp-stock-item\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item\",\"col\":3}},{\"id\":\"keyerp-stock-se\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Entry\",\"col\":3}},{\"id\":\"keyerp-stock-sb\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Balance\",\"col\":3}},{\"id\":\"keyerp-stock-wh\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Warehouse\",\"col\":3}},{\"id\":\"keyerp-stock-spacer\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"keyerp-stock-masters\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Transactions, Masters &amp; Reports</b></span>\",\"col\":12}},{\"id\":\"keyerp-stock-card\",\"type\":\"card\",\"data\":{\"card_name\":\"Stock\",\"col\":4}}]",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "stock",
+  "idx": 0,
+  "is_hidden": 0,
+  "label": "KeyERP Stock",
+  "links": [
+    {"hidden": 0, "is_query_report": 0, "label": "Stock", "link_count": 0, "onboard": 0, "type": "Card Break"},
+    {"dependencies": "", "hidden": 0, "is_query_report": 0, "label": "Item", "link_count": 0, "link_to": "Item", "link_type": "DocType", "onboard": 1, "type": "Link"},
+    {"dependencies": "Item, Warehouse", "hidden": 0, "is_query_report": 0, "label": "Stock Entry", "link_count": 0, "link_to": "Stock Entry", "link_type": "DocType", "onboard": 0, "type": "Link"},
+    {"dependencies": "", "hidden": 0, "is_query_report": 0, "label": "Warehouse", "link_count": 0, "link_to": "Warehouse", "link_type": "DocType", "onboard": 1, "type": "Link"},
+    {"dependencies": "", "hidden": 0, "is_query_report": 0, "label": "Stock Reconciliation", "link_count": 0, "link_to": "Stock Reconciliation", "link_type": "DocType", "onboard": 0, "type": "Link"},
+    {"dependencies": "", "hidden": 0, "is_query_report": 1, "label": "Stock Balance", "link_count": 0, "link_to": "Stock Balance", "link_type": "Report", "onboard": 0, "type": "Link"},
+    {"dependencies": "", "hidden": 0, "is_query_report": 1, "label": "Stock Ledger", "link_count": 0, "link_to": "Stock Ledger", "link_type": "Report", "onboard": 0, "type": "Link"}
+  ],
+  "modified": "2025-05-29 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "KeyERP",
+  "name": "KeyERP Stock",
+  "number_cards": [],
+  "owner": "Administrator",
+  "parent_page": "",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": "",
+  "roles": [],
+  "sequence_id": 5.0,
+  "shortcuts": [
+    {"label": "Item", "link_to": "Item", "type": "DocType"},
+    {"label": "Stock Entry", "link_to": "Stock Entry", "type": "DocType"},
+    {"label": "Stock Balance", "link_to": "Stock Balance", "type": "Report"},
+    {"label": "Warehouse", "link_to": "Warehouse", "type": "DocType"}
+  ],
+  "title": "KeyERP Stock",
+  "type": "Workspace"
+}

@@ -1,0 +1,107 @@
+// ── 1. Hide Frappe's workspace sidebar ────────────────────────
+// Target confirmed in frappe/public/scss/desk/sidebar.scss:23
+// body is display:flex row (main.scss:37); hiding this lets .main-section fill 100%
+.body-sidebar-container {
+  display: none !important;
+}
+
+// ── 2. KeyERP section nav bar ─────────────────────────────────
+#keyerp-section-nav {
+  width: 100%;
+  background: #0f172a;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+  // z-index below dialogs (1020+) per frappe/public/scss/desk/.sticky-top
+  z-index: 1019;
+}
+
+.keyerp-section-nav {
+  display: flex;
+  height: 40px;
+  align-items: stretch;
+}
+
+.keyerp-nav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0 8px;
+  height: 100%;
+  gap: 0;
+  align-items: stretch;
+}
+
+.keyerp-nav-item {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+}
+
+.keyerp-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 13px;
+  height: 100%;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none !important;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: color 0.12s, background 0.12s;
+  white-space: nowrap;
+
+  &:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.06);
+  }
+}
+
+.keyerp-nav-item.active > .keyerp-nav-link {
+  color: #fff;
+  border-bottom-color: #3b82f6;
+}
+
+.keyerp-caret {
+  font-size: 10px;
+  opacity: 0.6;
+  margin-left: 2px;
+}
+
+.keyerp-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 210px;
+  background: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  z-index: 1025;
+  padding: 5px 0;
+  list-style: none;
+  margin: 0;
+}
+
+.keyerp-dropdown-item {
+  display: block;
+  padding: 8px 16px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 13px;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.07);
+    color: #fff;
+  }
+}
+
+// ── 3. Responsive collapse (narrow viewports) ─────────────────
+@media (max-width: 768px) {
+  .keyerp-nav-list {
+    display: none; // TODO: replace with hamburger menu in Phase 2 follow-on
+  }
+}

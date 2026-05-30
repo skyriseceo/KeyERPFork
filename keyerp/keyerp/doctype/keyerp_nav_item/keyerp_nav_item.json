@@ -1,0 +1,57 @@
+{
+  "actions": [],
+  "autoname": "hash",
+  "creation": "2025-05-29 00:00:00.000000",
+  "doctype": "DocType",
+  "document_type": "Other",
+  "engine": "InnoDB",
+  "istable": 1,
+  "field_order": [
+    "label",
+    "link_type",
+    "link_to",
+    "profile",
+    "order"
+  ],
+  "fields": [
+    {
+      "fieldname": "label",
+      "fieldtype": "Data",
+      "label": "Label",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "link_type",
+      "fieldtype": "Select",
+      "label": "Link Type",
+      "options": "\nDocType\nReport\nPage\nWorkspace\nURL",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "link_to",
+      "fieldtype": "Data",
+      "label": "Link To",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "profile",
+      "fieldtype": "Select",
+      "label": "Profile",
+      "options": "\nall\ndistribution\nmanufacturing",
+      "default": "all"
+    },
+    {
+      "fieldname": "order",
+      "fieldtype": "Int",
+      "label": "Order",
+      "default": "0"
+    }
+  ],
+  "modified": "2025-05-29 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "KeyERP",
+  "name": "KeyERP Nav Item",
+  "owner": "Administrator",
+  "permissions": []
+}

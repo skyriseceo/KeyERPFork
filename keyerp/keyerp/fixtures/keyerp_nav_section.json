@@ -1,0 +1,135 @@
+[
+  {
+    "doctype": "KeyERP Nav Section",
+    "name": "home",
+    "section_id": "home",
+    "label": "Home",
+    "icon": "🏠",
+    "profile": "all",
+    "order": 10,
+    "route": "Workspaces/KeyERP Home",
+    "is_overlay": 0,
+    "disabled": 0,
+    "items": []
+  },
+  {
+    "doctype": "KeyERP Nav Section",
+    "name": "buy",
+    "section_id": "buy",
+    "label": "Buy",
+    "icon": "📦",
+    "profile": "all",
+    "order": 20,
+    "route": "Workspaces/KeyERP Buy",
+    "is_overlay": 0,
+    "disabled": 0,
+    "items": [
+      {"doctype": "KeyERP Nav Item", "label": "Material Request", "link_type": "DocType", "link_to": "Material Request", "profile": "all", "order": 1, "parentfield": "items"},
+      {"doctype": "KeyERP Nav Item", "label": "Purchase Order", "link_type": "DocType", "link_to": "Purchase Order", "profile": "all", "order": 2, "parentfield": "items"},
+      {"doctype": "KeyERP Nav Item", "label": "Purchase Receipt", "link_type": "DocType", "link_to": "Purchase Receipt", "profile": "all", "order": 3, "parentfield": "items"},
+      {"doctype": "KeyERP Nav Item", "label": "Purchase Invoice", "link_type": "DocType", "link_to": "Purchase Invoice", "profile": "all", "order": 4, "parentfield": "items"},
+      {"doctype": "KeyERP Nav Item", "label": "Supplier", "link_type": "DocType", "link_to": "Supplier", "profile": "all", "order": 5, "parentfield": "items"}
+    ]
+  },
+  {
+    "doctype": "KeyERP Nav Section",
+    "name": "sell",
+    "section_id": "sell",
+    "label": "Sell",
+    "icon": "🛒",
+    "profile": "all",
+    "order": 30,
+    "route": "Workspaces/KeyERP Sell",
+    "is_overlay": 0,
+    "disabled": 0,
+    "items": [
+      {"doctype": "KeyERP Nav Item", "label": "Quotation", "link_type": "DocType", "link_to": "Quotation", "profile": "all", "order": 1, "parentfield": "items"},
+      {"doctype": "KeyERP Nav Item", "label": "Sales Order", "link_type": "DocType", "link_to": "Sales Order", "profile": "all", "order": 2, "parentfield": "items"},
+      {"doctype": "KeyERP Nav Item", "label": "Delivery Note", "link_type": "DocType", "link_to": "Delivery Note", "profile": "all", "order": 3, "parentfield": "items"},
+      {"doctype": "KeyERP Nav Item", "label": "Sales Invoice", "link_type": "DocType", "link_to": "Sales Invoice", "profile": "all", "order": 4, "parentfield": "items"},
+      {"doctype": "KeyERP Nav Item", "label": "Customer", "link_type": "DocType", "link_to": "Customer", "profile": "all", "order": 5, "parentfield": "items"}
+    ]
+  },
+  {
+    "doctype": "KeyERP Nav Section",
+    "name": "make",
+    "section_id": "make",
+    "label": "Make",
+    "icon": "🏭",
+    "profile": "manufacturing",
+    "order": 35,
+    "route": "Workspaces/KeyERP Make",
+    "is_overlay": 0,
+    "disabled": 0,
+    "items": [
+      {"doctype": "KeyERP Nav Item", "label": "Work Order", "link_type": "DocType", "link_to": "Work Order", "profile": "manufacturing", "order": 1, "parentfield": "items"},
+      {"doctype": "KeyERP Nav Item", "label": "Job Card", "link_type": "DocType", "link_to": "Job Card", "profile": "manufacturing", "order": 2, "parentfield": "items"},
+      {"doctype": "KeyERP Nav Item", "label": "BOM", "link_type": "DocType", "link_to": "BOM", "profile": "manufacturing", "order": 3, "parentfield": "items"},
+      {"doctype": "KeyERP Nav Item", "label": "Production Plan", "link_type": "DocType", "link_to": "Production Plan", "profile": "manufacturing", "order": 4, "parentfield": "items"}
+    ]
+  },
+  {
+    "doctype": "KeyERP Nav Section",
+    "name": "stock",
+    "section_id": "stock",
+    "label": "Stock",
+    "icon": "🗃️",
+    "profile": "all",
+    "order": 40,
+    "route": "Workspaces/KeyERP Stock",
+    "is_overlay": 0,
+    "disabled": 0,
+    "items": [
+      {"doctype": "KeyERP Nav Item", "label": "Item", "link_type": "DocType", "link_to": "Item", "profile": "all", "order": 1, "parentfield": "items"},
+      {"doctype": "KeyERP Nav Item", "label": "Stock Entry", "link_type": "DocType", "link_to": "Stock Entry", "profile": "all", "order": 2, "parentfield": "items"},
+      {"doctype": "KeyERP Nav Item", "label": "Stock Balance", "link_type": "Report", "link_to": "Stock Balance", "profile": "all", "order": 3, "parentfield": "items"},
+      {"doctype": "KeyERP Nav Item", "label": "Warehouse", "link_type": "DocType", "link_to": "Warehouse", "profile": "all", "order": 4, "parentfield": "items"},
+      {"doctype": "KeyERP Nav Item", "label": "BOM Stock Report", "link_type": "Report", "link_to": "BOM Stock Report", "profile": "manufacturing", "order": 5, "parentfield": "items"}
+    ]
+  },
+  {
+    "doctype": "KeyERP Nav Section",
+    "name": "money",
+    "section_id": "money",
+    "label": "Money",
+    "icon": "💰",
+    "profile": "all",
+    "order": 50,
+    "route": "Workspaces/KeyERP Money",
+    "is_overlay": 0,
+    "disabled": 0,
+    "items": [
+      {"doctype": "KeyERP Nav Item", "label": "Payment Entry", "link_type": "DocType", "link_to": "Payment Entry", "profile": "all", "order": 1, "parentfield": "items"},
+      {"doctype": "KeyERP Nav Item", "label": "Journal Entry", "link_type": "DocType", "link_to": "Journal Entry", "profile": "all", "order": 2, "parentfield": "items"},
+      {"doctype": "KeyERP Nav Item", "label": "Accounts Receivable", "link_type": "Report", "link_to": "Accounts Receivable", "profile": "all", "order": 3, "parentfield": "items"},
+      {"doctype": "KeyERP Nav Item", "label": "Accounts Payable", "link_type": "Report", "link_to": "Accounts Payable", "profile": "all", "order": 4, "parentfield": "items"},
+      {"doctype": "KeyERP Nav Item", "label": "Bank Reconciliation", "link_type": "DocType", "link_to": "Bank Reconciliation Tool", "profile": "all", "order": 5, "parentfield": "items"}
+    ]
+  },
+  {
+    "doctype": "KeyERP Nav Section",
+    "name": "reports",
+    "section_id": "reports",
+    "label": "Reports",
+    "icon": "📊",
+    "profile": "all",
+    "order": 60,
+    "route": "Workspaces/KeyERP Reports",
+    "is_overlay": 0,
+    "disabled": 0,
+    "items": []
+  },
+  {
+    "doctype": "KeyERP Nav Section",
+    "name": "settings",
+    "section_id": "settings",
+    "label": "Settings",
+    "icon": "⚙️",
+    "profile": "all",
+    "order": 70,
+    "route": "Workspaces/KeyERP Settings",
+    "is_overlay": 0,
+    "disabled": 0,
+    "items": []
+  }
+]

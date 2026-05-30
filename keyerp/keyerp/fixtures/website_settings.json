@@ -1,0 +1,11 @@
+[
+  {
+    "doctype": "Website Settings",
+    "name": "Website Settings",
+    "app_name": "KeyERP",
+    "favicon": "/assets/keyerp/images/keyerp-favicon.svg",
+    "footer_powered": "KeyERP — Property of SKYRISE",
+    "hide_footer_signup": 1,
+    "disable_signup": 1
+  }
+]

@@ -1,0 +1,107 @@
+{
+  "actions": [],
+  "autoname": "field:section_id",
+  "creation": "2025-05-29 00:00:00.000000",
+  "doctype": "DocType",
+  "document_type": "Setup",
+  "engine": "InnoDB",
+  "field_order": [
+    "section_id",
+    "label",
+    "icon",
+    "profile",
+    "order",
+    "route",
+    "col_break_1",
+    "is_overlay",
+    "base_section",
+    "disabled",
+    "items"
+  ],
+  "fields": [
+    {
+      "fieldname": "section_id",
+      "fieldtype": "Data",
+      "label": "Section ID",
+      "reqd": 1,
+      "unique": 1,
+      "description": "Unique slug, e.g. buy, sell, make"
+    },
+    {
+      "fieldname": "label",
+      "fieldtype": "Data",
+      "label": "Label",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "icon",
+      "fieldtype": "Data",
+      "label": "Icon (emoji or icon name)"
+    },
+    {
+      "fieldname": "profile",
+      "fieldtype": "Select",
+      "label": "Profile",
+      "options": "\nall\ndistribution\nmanufacturing",
+      "reqd": 1,
+      "default": "all",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "order",
+      "fieldtype": "Int",
+      "label": "Order",
+      "default": "0"
+    },
+    {
+      "fieldname": "route",
+      "fieldtype": "Data",
+      "label": "Default Route (optional)"
+    },
+    {
+      "fieldname": "col_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "is_overlay",
+      "fieldtype": "Check",
+      "label": "Is Manufacturing Overlay",
+      "description": "If checked, this record modifies a Distribution base section rather than creating a new one"
+    },
+    {
+      "fieldname": "base_section",
+      "fieldtype": "Link",
+      "label": "Overrides Base Section",
+      "options": "KeyERP Nav Section",
+      "depends_on": "eval:doc.is_overlay"
+    },
+    {
+      "fieldname": "disabled",
+      "fieldtype": "Check",
+      "label": "Disabled"
+    },
+    {
+      "fieldname": "items",
+      "fieldtype": "Table",
+      "label": "Nav Items",
+      "options": "KeyERP Nav Item"
+    }
+  ],
+  "modified": "2025-05-29 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "KeyERP",
+  "name": "KeyERP Nav Section",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "read": 1,
+      "write": 1,
+      "role": "System Manager"
+    }
+  ],
+  "sort_field": "order",
+  "sort_order": "ASC"
+}

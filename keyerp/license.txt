@@ -1,0 +1,17 @@
+KeyERP — Property of SKYRISE
+
+Copyright (c) 2025 SKYRISE. All rights reserved.
+
+This software is proprietary and confidential. It is NOT open source.
+
+The KeyERP application (the contents of this `keyerp/` directory) is the
+exclusive property of SKYRISE. No license, express or implied, is granted to
+use, copy, modify, merge, publish, distribute, sublicense, or sell copies of
+this software, in whole or in part, without the prior written permission of
+SKYRISE.
+
+KeyERP is built as a layer on top of ERPNext and the Frappe Framework, which
+are distributed by their respective authors under their own licenses (GNU GPL
+v3 for ERPNext, MIT for Frappe). Those upstream licenses apply to the upstream
+code only and are unaffected by this proprietary notice, which governs solely
+the original KeyERP code contained in this directory.

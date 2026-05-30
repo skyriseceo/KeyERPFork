@@ -1,0 +1,68 @@
+{% extends "templates/web.html" %}
+{# KeyERP login page override.
+   Frappe resolves www/login.html across installed apps in order; because keyerp
+   is installed after frappe, this file overrides frappe/www/login.html.
+   Brand strings are KeyERP; the footer reads "KeyERP — Property of SKYRISE".
+   No upstream source files are edited. #}
+
+{% block title %}{{ _("Login") }} · KeyERP{% endblock %}
+
+{% block head_include %}
+<meta name="apple-mobile-web-app-title" content="KeyERP">
+<meta name="application-name" content="KeyERP">
+{% endblock %}
+
+{% block page_content %}
+<section class="for-login keyerp-login">
+	<div class="page-card">
+		<div class="page-card-head text-center">
+			<img
+				src="/assets/keyerp/images/keyerp-logo.svg"
+				alt="KeyERP"
+				class="keyerp-login-logo"
+				style="max-height: 40px; margin-bottom: 12px;"
+			/>
+			<h4 class="text-muted">{{ _("Login to KeyERP") }}</h4>
+		</div>
+
+		<form class="form-signin form-login" role="form">
+			<div class="login-with-email">
+				<div class="form-group">
+					<label class="form-label" for="login_email">{{ _("Email Address") }}</label>
+					<input
+						type="email"
+						id="login_email"
+						class="form-control"
+						placeholder="{{ _('jane@example.com') }}"
+						autocomplete="username"
+						required
+						autofocus
+					/>
+				</div>
+				<div class="form-group">
+					<label class="form-label" for="login_password">{{ _("Password") }}</label>
+					<input
+						type="password"
+						id="login_password"
+						class="form-control"
+						placeholder="{{ _('••••••') }}"
+						autocomplete="current-password"
+						required
+					/>
+				</div>
+				<button class="btn btn-sm btn-primary btn-block btn-login" type="submit">
+					{{ _("Login") }}
+				</button>
+			</div>
+
+			<div class="text-center sign-up-message">
+				<a href="/login#forgot" class="text-muted">{{ _("Forgot Password?") }}</a>
+			</div>
+		</form>
+	</div>
+
+	<div class="text-center text-muted keyerp-login-footer" style="margin-top: 18px; font-size: 12px;">
+		KeyERP — Property of SKYRISE
+	</div>
+</section>
+{% endblock %}

@@ -1,0 +1,42 @@
+{
+  "app": "keyerp",
+  "charts": [],
+  "content": "[{\"id\":\"keyerp-home-dist-shortcuts\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Your Shortcuts</b></span>\",\"col\":12}},{\"id\":\"keyerp-home-dist-so\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Order\",\"col\":3}},{\"id\":\"keyerp-home-dist-po\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Purchase Order\",\"col\":3}},{\"id\":\"keyerp-home-dist-item\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item\",\"col\":3}},{\"id\":\"keyerp-home-dist-pe\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Payment Entry\",\"col\":3}},{\"id\":\"keyerp-home-dist-spacer\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"keyerp-home-dist-masters\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Masters</b></span>\",\"col\":12}},{\"id\":\"keyerp-home-dist-card\",\"type\":\"card\",\"data\":{\"card_name\":\"Quick Access\",\"col\":4}}]",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "home",
+  "idx": 0,
+  "is_hidden": 0,
+  "label": "KeyERP Home",
+  "links": [
+    {"hidden": 0, "is_query_report": 0, "label": "Quick Access", "link_count": 0, "onboard": 0, "type": "Card Break"},
+    {"dependencies": "Customer, Item", "hidden": 0, "is_query_report": 0, "label": "Sales Order", "link_count": 0, "link_to": "Sales Order", "link_type": "DocType", "onboard": 1, "type": "Link"},
+    {"dependencies": "Supplier, Item", "hidden": 0, "is_query_report": 0, "label": "Purchase Order", "link_count": 0, "link_to": "Purchase Order", "link_type": "DocType", "onboard": 1, "type": "Link"},
+    {"dependencies": "", "hidden": 0, "is_query_report": 0, "label": "Item", "link_count": 0, "link_to": "Item", "link_type": "DocType", "onboard": 1, "type": "Link"},
+    {"dependencies": "", "hidden": 0, "is_query_report": 0, "label": "Customer", "link_count": 0, "link_to": "Customer", "link_type": "DocType", "onboard": 0, "type": "Link"},
+    {"dependencies": "", "hidden": 0, "is_query_report": 0, "label": "Supplier", "link_count": 0, "link_to": "Supplier", "link_type": "DocType", "onboard": 0, "type": "Link"}
+  ],
+  "modified": "2025-05-29 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "KeyERP",
+  "name": "KeyERP Home",
+  "number_cards": [],
+  "owner": "Administrator",
+  "parent_page": "",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": "Distribution",
+  "roles": [],
+  "sequence_id": 1.0,
+  "shortcuts": [
+    {"label": "Sales Order", "link_to": "Sales Order", "type": "DocType"},
+    {"label": "Purchase Order", "link_to": "Purchase Order", "type": "DocType"},
+    {"label": "Item", "link_to": "Item", "type": "DocType"},
+    {"label": "Payment Entry", "link_to": "Payment Entry", "type": "DocType"}
+  ],
+  "title": "KeyERP Home",
+  "type": "Workspace"
+}

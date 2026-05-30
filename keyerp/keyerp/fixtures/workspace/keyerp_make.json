@@ -1,0 +1,43 @@
+{
+  "app": "keyerp",
+  "charts": [],
+  "content": "[{\"id\":\"keyerp-make-shortcuts\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Make</b></span>\",\"col\":12}},{\"id\":\"keyerp-make-wo\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Work Order\",\"col\":3}},{\"id\":\"keyerp-make-jc\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Job Card\",\"col\":3}},{\"id\":\"keyerp-make-bom\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"BOM\",\"col\":3}},{\"id\":\"keyerp-make-pp\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Production Plan\",\"col\":3}},{\"id\":\"keyerp-make-spacer\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"keyerp-make-masters\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Transactions &amp; Reports</b></span>\",\"col\":12}},{\"id\":\"keyerp-make-card\",\"type\":\"card\",\"data\":{\"card_name\":\"Manufacturing\",\"col\":4}}]",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "manufacturing",
+  "idx": 0,
+  "is_hidden": 0,
+  "label": "KeyERP Make",
+  "links": [
+    {"hidden": 0, "is_query_report": 0, "label": "Manufacturing", "link_count": 0, "onboard": 0, "type": "Card Break"},
+    {"dependencies": "BOM, Item", "hidden": 0, "is_query_report": 0, "label": "Work Order", "link_count": 0, "link_to": "Work Order", "link_type": "DocType", "onboard": 1, "type": "Link"},
+    {"dependencies": "Work Order", "hidden": 0, "is_query_report": 0, "label": "Job Card", "link_count": 0, "link_to": "Job Card", "link_type": "DocType", "onboard": 0, "type": "Link"},
+    {"dependencies": "Item", "hidden": 0, "is_query_report": 0, "label": "BOM", "link_count": 0, "link_to": "BOM", "link_type": "DocType", "onboard": 1, "type": "Link"},
+    {"dependencies": "", "hidden": 0, "is_query_report": 0, "label": "Production Plan", "link_count": 0, "link_to": "Production Plan", "link_type": "DocType", "onboard": 0, "type": "Link"},
+    {"dependencies": "", "hidden": 0, "is_query_report": 1, "label": "BOM Stock Report", "link_count": 0, "link_to": "BOM Stock Report", "link_type": "Report", "onboard": 0, "type": "Link"},
+    {"dependencies": "", "hidden": 0, "is_query_report": 1, "label": "Production Planning Report", "link_count": 0, "link_to": "Production Planning Report", "link_type": "Report", "onboard": 0, "type": "Link"}
+  ],
+  "modified": "2025-05-29 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "KeyERP",
+  "name": "KeyERP Make",
+  "number_cards": [],
+  "owner": "Administrator",
+  "parent_page": "",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": "Manufacturing",
+  "roles": [],
+  "sequence_id": 7.0,
+  "shortcuts": [
+    {"label": "Work Order", "link_to": "Work Order", "type": "DocType"},
+    {"label": "Job Card", "link_to": "Job Card", "type": "DocType"},
+    {"label": "BOM", "link_to": "BOM", "type": "DocType"},
+    {"label": "Production Plan", "link_to": "Production Plan", "type": "DocType"}
+  ],
+  "title": "KeyERP Make",
+  "type": "Workspace"
+}
