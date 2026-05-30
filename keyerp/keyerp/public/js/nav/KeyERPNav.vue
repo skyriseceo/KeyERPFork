@@ -102,7 +102,7 @@ export default {
 				"job-card": "make",
 				bom: "make",
 				"production-plan": "make",
-				"bom-stock-report": "make",
+				"bom-stock-analysis": "make",
 				"production-planning-report": "make",
 				// Stock
 				item: "stock",

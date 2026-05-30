@@ -21,8 +21,9 @@ applied through hooks and template overrides.
   overlay/delta (the additional "Make" section and manufacturing-only items).
 - **Workspaces** — KeyERP-branded Workspace fixtures, one per nav section, with
   Manufacturing variants restricted by `restrict_to_domain`.
-- **Branding** — login template override, Website Settings fixture, app logo and
-  favicon assets.
+- **Branding** — driven through the Website Settings fixture (`app_name`,
+  `app_logo`, `favicon`, `footer_powered`) plus the `app_logo_url` hook, so the
+  stock login and desk render KeyERP branding with no fragile template override.
 
 ## Installation (live bench)
 

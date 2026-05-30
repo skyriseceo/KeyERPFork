@@ -3,6 +3,7 @@
     "doctype": "Website Settings",
     "name": "Website Settings",
     "app_name": "KeyERP",
+    "app_logo": "/assets/keyerp/images/keyerp-logo.svg",
     "favicon": "/assets/keyerp/images/keyerp-favicon.svg",
     "footer_powered": "KeyERP — Property of SKYRISE",
     "hide_footer_signup": 1,

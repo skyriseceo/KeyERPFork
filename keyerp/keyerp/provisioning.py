@@ -2,7 +2,10 @@ import frappe
 
 PROFILE_DOMAINS = {
 	"distribution": ["Distribution"],
-	"manufacturing": ["Manufacturing"],  # Distribution remains active from initial provisioning
+	# Manufacturing tenants run the Manufacturing domain only. _activate_domains clears the
+	# table first, so Distribution is deactivated; the cross-profile sections (Buy/Sell/Stock/
+	# Money/Reports/Settings) stay visible because their workspaces set no restrict_to_domain.
+	"manufacturing": ["Manufacturing"],
 }
 
 
@@ -37,7 +40,11 @@ def on_domain_settings_update(doc, method=None):
 	user = getattr(frappe.session, "user", None)
 	if not user or user == "Guest":
 		return
-	frappe.publish_realtime("keyerp_profile_changed", {"profile": profile}, user=user)
+	# after_commit: defer emission until the Domain Settings transaction lands, so the
+	# client's reload reads the new active_domains (and refreshed nav manifest) deterministically.
+	frappe.publish_realtime(
+		"keyerp_profile_changed", {"profile": profile}, user=user, after_commit=True
+	)
 
 
 def _resolve_profile(active_domains: set) -> str:

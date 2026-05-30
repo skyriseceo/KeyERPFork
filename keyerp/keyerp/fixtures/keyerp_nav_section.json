@@ -98,7 +98,7 @@
       {"doctype": "KeyERP Nav Item", "label": "Stock Entry", "link_type": "DocType", "link_to": "Stock Entry", "profile": "all", "order": 2, "parentfield": "items"},
       {"doctype": "KeyERP Nav Item", "label": "Stock Balance", "link_type": "Report", "link_to": "Stock Balance", "profile": "all", "order": 3, "parentfield": "items"},
       {"doctype": "KeyERP Nav Item", "label": "Warehouse", "link_type": "DocType", "link_to": "Warehouse", "profile": "all", "order": 4, "parentfield": "items"},
-      {"doctype": "KeyERP Nav Item", "label": "BOM Stock Report", "link_type": "Report", "link_to": "BOM Stock Report", "profile": "manufacturing", "order": 5, "parentfield": "items"}
+      {"doctype": "KeyERP Nav Item", "label": "BOM Stock Analysis", "link_type": "Report", "link_to": "BOM Stock Analysis", "profile": "manufacturing", "order": 5, "parentfield": "items"}
     ]
   },
   {

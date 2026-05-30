@@ -17,7 +17,7 @@
     {"dependencies": "Work Order", "hidden": 0, "is_query_report": 0, "label": "Job Card", "link_count": 0, "link_to": "Job Card", "link_type": "DocType", "onboard": 0, "type": "Link"},
     {"dependencies": "Item", "hidden": 0, "is_query_report": 0, "label": "BOM", "link_count": 0, "link_to": "BOM", "link_type": "DocType", "onboard": 1, "type": "Link"},
     {"dependencies": "", "hidden": 0, "is_query_report": 0, "label": "Production Plan", "link_count": 0, "link_to": "Production Plan", "link_type": "DocType", "onboard": 0, "type": "Link"},
-    {"dependencies": "", "hidden": 0, "is_query_report": 1, "label": "BOM Stock Report", "link_count": 0, "link_to": "BOM Stock Report", "link_type": "Report", "onboard": 0, "type": "Link"},
+    {"dependencies": "", "hidden": 0, "is_query_report": 1, "label": "BOM Stock Analysis", "link_count": 0, "link_to": "BOM Stock Analysis", "link_type": "Report", "onboard": 0, "type": "Link"},
     {"dependencies": "", "hidden": 0, "is_query_report": 1, "label": "Production Planning Report", "link_count": 0, "link_to": "Production Planning Report", "link_type": "Report", "onboard": 0, "type": "Link"}
   ],
   "modified": "2025-05-29 00:00:00.000000",
